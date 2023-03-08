@@ -9,7 +9,7 @@ def not_found(error):
     return render_template('404.html', error=error)    
 
 @app.errorhandler(500)
-def not_found(error):
+def server_error(error):
     return render_template('500.html', error=error)   
 
 @app.route('/')
@@ -24,7 +24,7 @@ def index():
 def hello():
     user_ip = request.cookies.get('user_ip')
     context = {
-        'user_ip': user_ip, 
+        'user_ip': user_ip,
         'todos': todos,
     }
     
